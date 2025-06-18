@@ -95,7 +95,7 @@ class Produto
      */
     public function setValorTotal(float $ValorTotal): self
     {
-        $this->ValorTotal = round($ValorTotal, 2);
+        $this->ValorTotal = $ValorTotal;
 
         return $this;
     }
