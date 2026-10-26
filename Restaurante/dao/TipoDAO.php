@@ -48,11 +48,11 @@ class TipoDAO
                 FROM comidas c 
                 JOIN tipo t ON (t.id = c.id_tipo) 
                 JOIN intensidades i ON (i.id = c.id_intensidade)
-                WHERE (c.id = ?)";
+                WHERE (c.id = :id)";
         
         $conn = Connection::getConnection();
         $stm = $conn->prepare($sql);
-        $stm->execute([$id]);
+        $stm->execute(["id" => $id]);
         
         $dados = $stm->fetchAll();
         $comidas = $this->map($dados); 
